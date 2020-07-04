@@ -1,0 +1,85 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Assets/Sprites/Environment/Blocks/power bomb.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/Environment/Blocks/missile.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Environment/Blocks/speed booster.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Environment/Blocks/destruction/3.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Environment/BehaviourBlock.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Sprites/Environment/Blocks/screw attack.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/Environment/Blocks/destruction/4.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/Environment/Blocks/beam.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/Environment/Blocks/bomb.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/Environment/Blocks/destruction/2.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/Environment/Blocks/destruction/1.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/Environment/Blocks/super missile.png" type="Texture" id=12]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 12 ) ],
+"loop": false,
+"name": "super missile",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": false,
+"name": "missile",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": false,
+"name": "bomb",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": false,
+"name": "beam",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": false,
+"name": "power bomb",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 10 ), ExtResource( 4 ), ExtResource( 7 ) ],
+"loop": false,
+"name": "destruction",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": false,
+"name": "screw attack",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "speed booster",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 8 )
+
+[node name="BehaviourBlock" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "beam"
+playing = true
+centered = false
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 5
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

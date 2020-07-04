@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Spin.ogg-08e2673334bde56604f2bc92694eaab5.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/Samus/Spin.ogg"
+dest_files=[ "res://.import/Spin.ogg-08e2673334bde56604f2bc92694eaab5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

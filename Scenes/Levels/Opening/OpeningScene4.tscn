@@ -1,0 +1,186 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Assets/Sprites/Other/Opening sequence/ship/1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/Other/Opening sequence/ship/2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Other/Opening sequence/ship/7.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Other/Opening sequence/ship/3.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Other/Opening sequence/ship/ENGINE 3.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Levels/Opening/Ship.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Levels/Opening/OpeningScene4.gd" type="Script" id=7]
+[ext_resource path="res://Assets/Sprites/Other/Opening sequence/ship/ENGINE 1.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/Other/Opening sequence/ship/ENGINE 2.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/Other/Opening sequence/ship/6.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/Other/Opening sequence/ship/8.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/Other/Opening sequence/ship/10.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sprites/Other/Opening sequence/ship/5.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/Other/Opening sequence/ship/9.png" type="Texture" id=14]
+[ext_resource path="res://Scenes/GUI/Dialog.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Assets/Sprites/Other/Opening sequence/ship/4.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Sprites/Other/Opening sequence/Space bg 2.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Sprites/Other/Opening sequence/Asteroid Brown.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Sprites/Other/Square.png" type="Texture" id=19]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 16 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 3 ), ExtResource( 11 ), ExtResource( 14 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 50.0
+} ]
+
+[sub_resource type="Animation" id=3]
+resource_name = "New Anim"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Asteroid:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 14 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -54.1, -81.8 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 14 ),
+"transitions": PoolRealArray( 1, 2.4623 ),
+"update": 0,
+"values": [ Vector2( 64, 104 ), Vector2( 200, 88 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 14 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -5.7, -5.7 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimatedSprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 14 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.5, 0.5 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AnimatedSprite:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "dialogue"
+} ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Black:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 12 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Black:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 12, 14 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="OpeningScene4" type="Node2D"]
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_horizontal_guides_": [ -16.0 ]
+}
+
+[node name="BG" type="Sprite" parent="."]
+scale = Vector2( 1.25, 1.5 )
+texture = ExtResource( 17 )
+centered = false
+
+[node name="Dialogbox" parent="." instance=ExtResource( 15 )]
+visible = false
+auto_time = 1.0
+normal_text_speed = 0.075
+can_be_sped_up = false
+
+[node name="Asteroid" type="Sprite" parent="."]
+position = Vector2( 272, 72 )
+rotation = -1.42768
+scale = Vector2( 0.359803, 0.359803 )
+texture = ExtResource( 18 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 176, 88 )
+rotation = -0.0994838
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 1 )
+frame = 8
+flip_h = true
+script = ExtResource( 6 )
+
+[node name="Emission" type="AnimatedSprite" parent="AnimatedSprite"]
+frames = SubResource( 2 )
+frame = 3
+playing = true
+
+[node name="Black" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+scale = Vector2( 20, 15 )
+texture = ExtResource( 19 )
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "New Anim"
+"anims/New Anim" = SubResource( 3 )

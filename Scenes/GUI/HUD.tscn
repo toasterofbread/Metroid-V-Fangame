@@ -1,0 +1,59 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Scenes/GUI/HUD.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sprites/Other/Text/Energy numerals/9.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Other/Square.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Other/Text/Energy numerals/5.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/Other/Text/Energy numerals/0.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/Other/Text/Energy numerals/8.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/Other/Text/Energy numerals/6.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/Other/Text/Energy numerals/3.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/Other/Text/Energy numerals/1.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/Other/Text/Energy numerals/7.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/Other/Text/Energy numerals/2.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sprites/Other/Text/Energy numerals/4.png" type="Texture" id=13]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="HUD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2( 0.8, 0.8 )
+transform = Transform2D( 0.8, 0, 0, 0.8, 0, 0 )
+
+[node name="Energy" type="Node2D" parent="CanvasLayer"]
+position = Vector2( 8, 8 )
+
+[node name="Background" type="Sprite" parent="CanvasLayer/Energy"]
+modulate = Color( 0, 0, 0, 0.266667 )
+position = Vector2( 16.502, 10 )
+scale = Vector2( 2.06225, 1.125 )
+z_index = -1
+texture = ExtResource( 4 )
+
+[node name="Digit1" type="AnimatedSprite" parent="CanvasLayer/Energy"]
+modulate = Color( 1, 0.647059, 0.196078, 1 )
+position = Vector2( 10, 10 )
+frames = SubResource( 1 )
+frame = 9
+
+[node name="Digit2" type="AnimatedSprite" parent="CanvasLayer/Energy"]
+modulate = Color( 1, 0.647059, 0.196078, 1 )
+position = Vector2( 23, 10 )
+frames = SubResource( 1 )
+frame = 9
+
+[node name="ETanks" type="Node2D" parent="CanvasLayer/Energy"]
+position = Vector2( 33, 4 )

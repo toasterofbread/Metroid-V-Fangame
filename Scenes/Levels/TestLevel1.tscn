@@ -1,0 +1,139 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/Samus/Samus.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Levels/TestLevel1.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/GUI/HUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/World/WorldTileMap.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Sprites/Other/Opening sequence/Ship.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/World/World Block (16x16).tscn" type="PackedScene" id=6]
+
+[sub_resource type="Animation" id=1]
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ship:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 9.84916 ),
+"update": 0,
+"values": [ Vector2( 209, -468.637 ), Vector2( 209, -71.982 ) ]
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+opening = false
+
+[node name="Ship" type="Sprite" parent="."]
+position = Vector2( 208, -48 )
+texture = ExtResource( 5 )
+
+[node name="Emission" type="AnimatedSprite" parent="Ship"]
+
+[node name="Samus" parent="." instance=ExtResource( 1 )]
+position = Vector2( -2, -43 )
+camera_limits = {
+"Bottom": 10000000,
+"Left": -10000000,
+"Right": 10000000,
+"Top": -10000000
+}
+
+[node name="HUD" parent="." instance=ExtResource( 3 )]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/New Anim" = SubResource( 1 )
+
+[node name="WorldTileMap" parent="." instance=ExtResource( 4 )]
+position = Vector2( -15, 0 )
+randomise = true
+
+[node name="World Block (16x16)" parent="WorldTileMap" instance=ExtResource( 6 )]
+position = Vector2( 63, 0 )
+
+[node name="World Block (16x16)5" parent="WorldTileMap" instance=ExtResource( 6 )]
+position = Vector2( 79, 0 )
+
+[node name="World Block (16x16)6" parent="WorldTileMap" instance=ExtResource( 6 )]
+position = Vector2( 95, 0 )
+
+[node name="World Block (16x16)7" parent="WorldTileMap" instance=ExtResource( 6 )]
+position = Vector2( 111, 0 )
+
+[node name="World Block (16x16)8" parent="WorldTileMap" instance=ExtResource( 6 )]
+position = Vector2( 127, 0 )
+
+[node name="World Block (16x16)9" parent="WorldTileMap" instance=ExtResource( 6 )]
+position = Vector2( 143, 0 )
+
+[node name="World Block (16x16)10" parent="WorldTileMap" instance=ExtResource( 6 )]
+position = Vector2( 159, 0 )
+destruction_type = "missile"
+
+[node name="World Block (16x16)11" parent="WorldTileMap" instance=ExtResource( 6 )]
+position = Vector2( 175, 0 )
+
+[node name="World Block (16x16)12" parent="WorldTileMap" instance=ExtResource( 6 )]
+position = Vector2( 191, 0 )
+
+[node name="World Block (16x16)13" parent="WorldTileMap" instance=ExtResource( 6 )]
+position = Vector2( 207, 0 )
+
+[node name="World Block (16x16)14" parent="WorldTileMap" instance=ExtResource( 6 )]
+position = Vector2( 223, 0 )
+
+[node name="World Block (16x16)15" parent="WorldTileMap" instance=ExtResource( 6 )]
+position = Vector2( 271, 0 )
+
+[node name="World Block (16x16)17" parent="WorldTileMap" instance=ExtResource( 6 )]
+position = Vector2( 239, 0 )
+
+[node name="World Block (16x16)18" parent="WorldTileMap" instance=ExtResource( 6 )]
+position = Vector2( 287, 0 )
+
+[node name="World Block (16x16)19" parent="WorldTileMap" instance=ExtResource( 6 )]
+position = Vector2( 303, 0 )
+
+[node name="World Block (16x16)20" parent="WorldTileMap" instance=ExtResource( 6 )]
+position = Vector2( 319, 0 )
+
+[node name="World Block (16x16)21" parent="WorldTileMap" instance=ExtResource( 6 )]
+position = Vector2( 335, 0 )
+
+[node name="World Block (16x16)23" parent="WorldTileMap" instance=ExtResource( 6 )]
+position = Vector2( 351, 16 )
+
+[node name="World Block (16x16)24" parent="WorldTileMap" instance=ExtResource( 6 )]
+position = Vector2( 367, 32 )
+
+[node name="World Block (16x16)25" parent="WorldTileMap" instance=ExtResource( 6 )]
+position = Vector2( 383, 32 )
+
+[node name="World Block (16x16)26" parent="WorldTileMap" instance=ExtResource( 6 )]
+position = Vector2( 399, 48 )
+
+[node name="World Block (16x16)27" parent="WorldTileMap" instance=ExtResource( 6 )]
+position = Vector2( 415, 48 )
+
+[node name="World Block (16x16)28" parent="WorldTileMap" instance=ExtResource( 6 )]
+position = Vector2( 431, 48 )
+
+[node name="World Block (16x16)29" parent="WorldTileMap" instance=ExtResource( 6 )]
+position = Vector2( 447, 48 )
+
+[node name="World Block (16x16)16" parent="WorldTileMap" instance=ExtResource( 6 )]
+position = Vector2( 255, 0 )
+
+[node name="World Block (16x16)2" parent="WorldTileMap" instance=ExtResource( 6 )]
+position = Vector2( 47, 0 )
+
+[node name="World Block (16x16)3" parent="WorldTileMap" instance=ExtResource( 6 )]
+position = Vector2( 31, 0 )
+
+[node name="World Block (16x16)22" parent="WorldTileMap" instance=ExtResource( 6 )]
+position = Vector2( 15, 16 )
+
+[node name="World Block (16x16)4" parent="WorldTileMap" instance=ExtResource( 6 )]
+position = Vector2( 15, 0 )

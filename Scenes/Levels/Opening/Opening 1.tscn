@@ -1,0 +1,153 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Assets/Sprites/Other/Opening sequence/ship/5.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/Other/Opening sequence/ship/9.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Other/Opening sequence/ship/4.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Other/Opening sequence/Space bg..png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Other/Opening sequence/ship/2.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/Other/Opening sequence/ship/3.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/Other/Opening sequence/ship/1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/Other/Opening sequence/ship/6.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/Other/Opening sequence/ship/7.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/Other/Opening sequence/ship/8.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/Other/Opening sequence/ship/10.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/Other/Opening sequence/ship/ENGINE 3.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sprites/Other/Opening sequence/ship/ENGINE 1.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/Other/Opening sequence/ship/ENGINE 2.png" type="Texture" id=14]
+[ext_resource path="res://Scenes/Levels/Opening/Ship.gd" type="Script" id=15]
+[ext_resource path="res://Scenes/Levels/Opening/Opening 1.gd" type="Script" id=16]
+[ext_resource path="res://Assets/Sprites/Other/Square.png" type="Texture" id=17]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 2 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 14 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "default",
+"speed": 50.0
+} ]
+
+[sub_resource type="Animation" id=3]
+resource_name = "idle"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.001, 20 ),
+"transitions": PoolRealArray( 1, 0.210224 ),
+"update": 0,
+"values": [ Vector2( 275, 167 ), Vector2( 53, 79 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 20, 29.9 ),
+"transitions": PoolRealArray( 1, 0.258816, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.5, 0.5 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1, 13.7, 21.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 8, 7, 0 ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 17.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "nextScene"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "fade to black"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Black:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.001 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Black:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="OpeningScene1" type="Node2D"]
+script = ExtResource( 16 )
+
+[node name="BG" type="Sprite" parent="."]
+scale = Vector2( 1.25, 1.5 )
+z_index = -1
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Ship" type="AnimatedSprite" parent="."]
+position = Vector2( 271.681, 165.684 )
+frames = SubResource( 1 )
+frame = 7
+script = ExtResource( 15 )
+
+[node name="Emission" type="AnimatedSprite" parent="Ship"]
+visible = false
+position = Vector2( 20.8438, -4 )
+scale = Vector2( 1.39453, 1 )
+frames = SubResource( 2 )
+playing = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Ship"]
+autoplay = "idle"
+playback_speed = 2.0
+anims/idle = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/fade to black" = SubResource( 4 )
+
+[node name="Black" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 0 )
+position = Vector2( 160, 120 )
+scale = Vector2( 20, 15 )
+z_index = 10
+texture = ExtResource( 17 )
