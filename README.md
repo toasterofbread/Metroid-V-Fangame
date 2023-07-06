@@ -1,5 +1,7 @@
 # Metroid 5
 
+<img height="350" src="readme/1.png"></img>
+
 ## Log:
 
 
