@@ -2,6 +2,9 @@
 
 <img height="350" src="readme/1.png"></img>
 
+#### Note: This was a year or two before Dread released
+#### Also note: This project only lasted for around a week
+
 ## Log:
 
 
